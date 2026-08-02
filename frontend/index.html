@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NoticeHub — the digital notice board</title>
+  <meta name="description" content="NoticeHub puts every announcement on one searchable, filterable pinboard. Post, edit, schedule and find notices in seconds.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='9' r='6.5' fill='%23C83222'/%3E%3Ccircle cx='9.8' cy='6.8' r='2' fill='rgba(255,255,255,.55)'/%3E%3Crect x='11.4' y='14.5' width='1.2' height='6' rx='.6' fill='%232A2017'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Caveat:wght@500;700&family=Karla:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/public/index.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="index.html" aria-label="NoticeHub home">
+        <svg class="wordmark-pin" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="9" r="6.5" fill="#C83222"></circle>
+          <circle cx="9.8" cy="6.8" r="2" fill="rgba(255,255,255,.55)"></circle>
+          <rect x="11.4" y="14.5" width="1.2" height="6" rx=".6" fill="#2A2017"></rect>
+        </svg>
+        noticehub
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="#board-preview">Notices</a>
+        <a href="#for-readers">For readers</a>
+        <a href="#for-admins">For admins</a>
+        <a href="#how-it-works">How it works</a>
+      </nav>
+      <div class="header-cta">
+        <a class="btn btn-ghost btn-sm" href="pages/auth/login.html">Admin login</a>
+        <a class="btn btn-primary btn-sm" href="pages/auth/signup.html">Sign up</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-copy">
+        <p class="eyebrow">Every notice, one board</p>
+        <h1 class="hero-title">The notice board, <span class="marker-word">finally digital.</span></h1>
+        <p class="hero-sub">Announcements, events, lost &amp; found, deadlines — NoticeHub keeps them all on one searchable board, wherever you are.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="pages/private/user/dashboard.html">Browse notices</a>
+          <a class="btn btn-ghost btn-lg" href="pages/auth/login.html">Admin login</a>
+        </div>
+        <p class="hero-note">Free to read &middot; posting takes under a minute</p>
+      </div>
+
+      <div class="wrap board-scene" id="board-preview">
+        <div class="board" role="region" aria-label="Notice board preview">
+          <article class="notice cat-announcement" aria-label="Preview notice: library hours">
+            <span class="pin" aria-hidden="true"></span>
+            <p class="notice-tag">Announcement</p>
+            <h3 class="notice-title">Library hours extend for finals week</h3>
+            <p class="notice-text">Open until 1 AM from May 4. Quiet floors stay quiet.</p>
+            <p class="notice-meta"><span>posted 2h ago</span><span>#021</span></p>
+          </article>
+
+          <article class="notice cat-events" aria-label="Preview notice: basketball tryouts">
+            <span class="pin" aria-hidden="true"></span>
+            <p class="notice-tag">Events</p>
+            <h3 class="notice-title">Basketball tryouts — Wednesday 5 PM</h3>
+            <p class="notice-text">Courts B. Bring water and your student ID.</p>
+            <p class="notice-meta"><span>posted yesterday</span><span>#019</span></p>
+          </article>
+
+          <article class="notice cat-lost" aria-label="Preview notice: found umbrella">
+            <span class="pin" aria-hidden="true"></span>
+            <p class="notice-tag">Lost &amp; found</p>
+            <h3 class="notice-title">Found: black umbrella near the Quad</h3>
+            <p class="notice-text">Claim it at the front desk, second floor.</p>
+            <p class="notice-meta"><span>posted 3 days ago</span><span>#016</span></p>
+          </article>
+
+          <article class="notice cat-academics" aria-label="Preview notice: survey">
+            <span class="pin" aria-hidden="true"></span>
+            <p class="notice-tag">Academics</p>
+            <h3 class="notice-title">Mid-semester survey needs 2 minutes</h3>
+            <p class="notice-text">Your answers decide next semester's schedule. Deadline Friday.</p>
+            <p class="notice-meta"><span>posted 1d ago</span><span>#020</span></p>
+          </article>
+
+          <aside class="sticky-note" aria-hidden="true">Fresh notices land daily</aside>
+          <p class="board-note" aria-hidden="true">&larr; always up to date</p>
+        </div>
+        <p class="board-caption">live from the office board &middot; updated 2h ago</p>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <span class="ticker-label"><span class="live-dot"></span>Live</span>
+      <div class="ticker-track">
+        <ul class="ticker-list">
+          <li>Library hours extended for finals week</li>
+          <li>Basketball tryouts &mdash; Wednesday, 5 PM, Courts B</li>
+          <li>Lost: black umbrella near the Quad</li>
+          <li>Mid-semester survey needs 2 minutes of your time</li>
+          <li>Wi-Fi maintenance Sunday, 2&ndash;4 AM</li>
+          <li>Spring festival volunteers wanted</li>
+        </ul>
+        <ul class="ticker-list" aria-hidden="true">
+          <li>Library hours extended for finals week</li>
+          <li>Basketball tryouts &mdash; Wednesday, 5 PM, Courts B</li>
+          <li>Lost: black umbrella near the Quad</li>
+          <li>Mid-semester survey needs 2 minutes of your time</li>
+          <li>Wi-Fi maintenance Sunday, 2&ndash;4 AM</li>
+          <li>Spring festival volunteers wanted</li>
+        </ul>
+      </div>
+    </div>
+    <p class="visually-hidden">Live updates include: library hours extended for finals week, basketball tryouts Wednesday, a found umbrella near the Quad, the mid-semester survey, Wi-Fi maintenance, and spring festival volunteers.</p>
+
+    <section class="section" id="for-readers">
+      <div class="wrap two-up">
+        <div class="two-up-copy reveal">
+          <p class="eyebrow">For readers</p>
+          <h2 class="section-title">Never miss the memo.</h2>
+          <p class="section-sub">No more walking past a paper board three times before you actually read it. NoticeHub keeps everything visible, findable, and up to date.</p>
+          <ul class="feature-list">
+            <li>Read every notice, newest first</li>
+            <li>Search the whole board by keyword</li>
+            <li>Filter by category &mdash; events, lost &amp; found, academics</li>
+          </ul>
+        </div>
+        <div class="paper-card demo-card reveal" aria-hidden="true">
+          <span class="demo-tag">Preview</span>
+          <div class="demo-search">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+            </svg>
+            <span>Search the board&hellip;</span>
+          </div>
+          <div class="demo-chips">
+            <span class="chip chip-active">All</span>
+            <span class="chip">Announcements</span>
+            <span class="chip">Events</span>
+            <span class="chip">Lost &amp; found</span>
+          </div>
+          <ul class="demo-list">
+            <li class="cat-announcement">
+              <span class="notice-tag">Announcement</span>
+              <p class="demo-title">Library hours extend for finals week</p>
+              <p class="demo-meta">posted 2h ago</p>
+            </li>
+            <li class="cat-academics">
+              <span class="notice-tag">Academics</span>
+              <p class="demo-title">Mid-semester survey needs 2 minutes</p>
+              <p class="demo-meta">posted 1d ago</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-flip" id="for-admins">
+      <div class="wrap two-up">
+        <div class="paper-card demo-card reveal" aria-hidden="true">
+          <span class="demo-tag">Preview</span>
+          <p class="demo-form-title">New notice</p>
+          <div class="demo-field demo-search"><span>Notice title&hellip;</span></div>
+          <div class="demo-field demo-textarea"><span>Details&hellip;</span></div>
+          <div class="demo-actions">
+            <span class="chip chip-active">Pin now</span>
+            <span class="chip">Schedule</span>
+          </div>
+        </div>
+        <div class="two-up-copy reveal">
+          <p class="eyebrow">For admins</p>
+          <h2 class="section-title">Run the board from anywhere.</h2>
+          <p class="section-sub">Post a notice in under a minute. Fix a typo after it's live. Or write it now and pin it later &mdash; the board works on your schedule.</p>
+          <ul class="feature-list">
+            <li>Post notices with a title, category, and details</li>
+            <li>Edit or delete anything, anytime</li>
+            <li>Schedule notices to go live when the time is right</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="wrap">
+        <p class="eyebrow center">How it works</p>
+        <h2 class="section-title center">Putting a notice up</h2>
+        <ol class="steps-list">
+          <li class="step reveal">
+            <span class="step-num">1</span>
+            <h3 class="step-title">Write it</h3>
+            <p class="step-text">Title, category, details. Set a date and it's scheduled.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">2</span>
+            <h3 class="step-title">Pin it</h3>
+            <p class="step-text">Hit publish and the notice goes live on the board instantly.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">3</span>
+            <h3 class="step-title">It's seen</h3>
+            <p class="step-text">Readers search, filter, and read &mdash; no more paper towers.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section cta-band">
+      <div class="wrap cta-inner">
+        <h2 class="cta-title">Got something to announce?</h2>
+        <p class="cta-sub">Post a notice in under a minute &mdash; publish now or schedule it for later.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="pages/auth/signup.html">Create an account</a>
+          <a class="btn btn-ghost-light btn-lg" href="pages/auth/login.html">Admin login</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <span class="wordmark wordmark-footer">noticehub</span>
+        <p class="footer-tag">Every notice in its place.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#board-preview">Notices</a>
+        <a href="pages/auth/login.html">Login</a>
+        <a href="pages/auth/signup.html">Sign up</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 NoticeHub</p>
+    </div>
+  </footer>
+
+  <script src="js/public/index.js"></script>
+</body>
+</html>
