@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import { setServers } from "node:dns/promises";
+import memberModel from "./models/member.js";
 
 setServers(["8.8.8.8", "1.1.1.1"]);
 
@@ -16,12 +17,43 @@ mongoose.connect(URI).then((res) => console.log("MongoDB connected"));
 
 const app = express();
 
+app.use(express.json());
+app.use(cors());
+
 app.get("/", (request, response) => {
   response.json({
     message: "Server is successfully running...",
     body: null,
     status: true,
   });
+});
+
+app.post("/api/signup", async (request, response) => {
+
+    const {fullName , email , password} = request.body
+
+    if(!fullName , !email , !password){
+response.json(
+    {
+        message : "Required fields are missing",
+        status : false
+    }
+)
+return
+    }
+
+    
+    
+  const userData = await memberModel.create(request.body);
+  console.log(userData);
+
+  console.log(request.body);
+
+  response.json({
+    message: "User Created",
+  });
+
+  
 });
 
 app.listen(PORT, () => console.log("Server running.."));
