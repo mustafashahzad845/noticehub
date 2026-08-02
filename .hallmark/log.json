@@ -1,6 +1,13 @@
 [
   {
     "date": "2026-08-03",
+    "macrostructure": "Centered Pinned Card",
+    "theme": "noticehub system (existing tokens)",
+    "enrichment": "Tier A dog-eared card + sticky note",
+    "brief": "NoticeHub · signup page (create account)"
+  },
+  {
+    "date": "2026-08-03",
     "macrostructure": "Split Gate",
     "theme": "noticehub system (existing tokens)",
     "enrichment": "Tier A corkboard + pinned notices + sticky note",

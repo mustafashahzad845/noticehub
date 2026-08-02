@@ -1,0 +1,316 @@
+/* Hallmark · macrostructure: Centered Pinned Card · tone: warm corkboard · anchor hue: pin red */
+
+:root {
+  --ring: rgba(200, 50, 34, 0.2);
+  --field-bg: #fff;
+  --form-shadow: 0 24px 48px -24px rgba(61, 42, 22, 0.4), 0 2px 6px rgba(61, 42, 22, 0.08);
+}
+
+.signup-shell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(2rem, 5vw, 3.5rem) 1.25rem;
+  background-color: var(--cork);
+  background-image:
+    radial-gradient(rgba(90, 60, 25, 0.16) 1px, transparent 1.6px),
+    radial-gradient(ellipse at 18% 22%, rgba(255, 244, 222, 0.22), transparent 52%),
+    radial-gradient(ellipse at 82% 78%, rgba(60, 35, 10, 0.2), transparent 55%);
+  background-size: 16px 16px, 100% 100%, 100% 100%;
+  overflow-x: clip;
+}
+
+.signup-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.signup-frame {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 100%);
+  text-align: center;
+}
+
+.signup-frame .wordmark {
+  color: var(--ink);
+  justify-content: center;
+  margin-bottom: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+/* ---------- the card ---------- */
+
+.signup-card {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(2rem, 5vw, 2.7rem) clamp(1.5rem, 5vw, 2.7rem);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--form-shadow);
+  text-align: left;
+  animation: signup-rise 0.45s ease-out both;
+}
+
+.signup-card::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 42px solid var(--cork);
+  border-right: 42px solid transparent;
+  border-bottom-right-radius: 8px;
+}
+
+.card-pin {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  width: 26px;
+  height: 26px;
+  margin-left: -13px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1) 38%, var(--pin-bright));
+  box-shadow: 0 3px 4px rgba(30, 18, 4, 0.4);
+  z-index: 2;
+}
+
+.card-pin::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  width: 2px;
+  height: 7px;
+  margin-left: -1px;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.7);
+  transform: rotate(24deg);
+}
+
+.card-sticky {
+  position: absolute;
+  top: -1.35rem;
+  right: -1.1rem;
+  width: 148px;
+  padding: 0.6rem 0.85rem;
+  background: var(--sticky);
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.2;
+  text-align: center;
+  transform: rotate(4deg);
+  box-shadow: 0 10px 16px -8px rgba(45, 28, 8, 0.5);
+  z-index: 3;
+}
+
+.card-sticky::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* ---------- heading ---------- */
+
+.signup-eyebrow {
+  margin: 0 0 0.5rem;
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.1;
+  color: var(--pin);
+  transform: rotate(-1deg);
+}
+
+.signup-title {
+  margin: 0 0 0.55rem;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 4.5vw, 2.2rem);
+  line-height: 1.12;
+}
+
+.signup-sub {
+  margin: 0 0 1.7rem;
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- fields ---------- */
+
+.field {
+  margin-bottom: 1.15rem;
+}
+
+.field-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.field-label {
+  display: block;
+  margin: 0 0 0.4rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.field-hint {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-mute);
+}
+
+.field input {
+  width: 100%;
+  padding: 0.78rem 1rem;
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  background: var(--field-bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 0.98rem;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.field input::placeholder {
+  color: var(--ink-mute);
+  opacity: 0.75;
+}
+
+.field input:hover {
+  border-color: rgba(42, 32, 23, 0.32);
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--pin);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field-row .field {
+  margin-bottom: 1.15rem;
+}
+
+.field-row .field input {
+  padding-inline: 0.95rem;
+}
+
+/* ---------- submit & alt ---------- */
+
+.btn-block {
+  width: 100%;
+}
+
+.form-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 1.4rem 0 1.1rem;
+  color: var(--ink-mute);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.form-divider::before,
+.form-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.form-alt {
+  margin: 0;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.form-alt a {
+  font-weight: 800;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--pin);
+  text-underline-offset: 3px;
+}
+
+.form-alt a:hover {
+  color: var(--pin);
+}
+
+.signup-foot {
+  margin: 1.3rem 0 0;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-mute);
+}
+
+/* ---------- keyframes ---------- */
+
+@keyframes signup-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 520px) {
+  .signup-shell {
+    padding: 1.6rem 0.9rem;
+  }
+
+  .signup-card {
+    padding: 1.8rem 1.3rem 1.6rem;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .card-sticky {
+    width: 128px;
+    font-size: 1.05rem;
+    right: -0.5rem;
+  }
+}
+
+/* ---------- reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .signup-card {
+    animation: none;
+  }
+}
