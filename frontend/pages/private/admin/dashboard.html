@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin dashboard — NoticeHub</title>
+  <meta name="description" content="Post, edit, delete and schedule notices on the NoticeHub board.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='9' r='6.5' fill='%23C83222'/%3E%3Ccircle cx='9.8' cy='6.8' r='2' fill='rgba(255,255,255,.55)'/%3E%3Crect x='11.4' y='14.5' width='1.2' height='6' rx='.6' fill='%232A2017'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Caveat:wght@500;700&family=Karla:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../css/private/admin/dashboard.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="admin-bar">
+    <div class="wrap admin-bar-inner">
+      <a class="wordmark" href="../../../index.html" aria-label="NoticeHub home">
+        <svg class="wordmark-pin" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="9" r="6.5" fill="#E0442E"></circle>
+          <circle cx="9.8" cy="6.8" r="2" fill="rgba(255,255,255,.55)"></circle>
+          <rect x="11.4" y="14.5" width="1.2" height="6" rx=".6" fill="#FAF5EA"></rect>
+        </svg>
+        noticehub
+      </a>
+      <span class="admin-pill">Admin</span>
+      <nav class="admin-nav" aria-label="Admin">
+        <a href="../../../index.html">View board</a>
+        <a class="btn btn-ghost-light btn-sm" href="../../auth/login.html">Log out</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="toolbar-section">
+      <div class="wrap">
+        <div class="page-head">
+          <h1 class="page-title">Run the board, <span class="marker-word">from one desk.</span></h1>
+          <p class="page-sub">Post, edit, schedule and delete notices — everything lands on the board the moment you save it.</p>
+          <p class="page-stats" id="stats" aria-live="polite"></p>
+        </div>
+
+        <div class="toolbar">
+          <label class="search-box">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+            </svg>
+            <input type="search" id="search" placeholder="Search notices&hellip;">
+          </label>
+          <div class="chips" id="filters" role="group" aria-label="Filter by category">
+            <button class="chip chip-active" type="button" data-filter="all">All</button>
+            <button class="chip" type="button" data-filter="Announcement">Announcements</button>
+            <button class="chip" type="button" data-filter="Events">Events</button>
+            <button class="chip" type="button" data-filter="Academics">Academics</button>
+            <button class="chip" type="button" data-filter="Lost &amp; found">Lost &amp; found</button>
+          </div>
+          <a class="btn btn-primary btn-sm new-btn" href="#compose">Pin a notice</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap desk">
+      <section class="board-grid" aria-label="Your notices">
+        <div class="notice-grid" id="notices"></div>
+        <div class="empty-card" id="empty" hidden>
+          <p class="empty-title" id="empty-title">Nothing pinned here yet.</p>
+          <p class="empty-text" id="empty-text">Write the first notice — it goes live as soon as you pin it.</p>
+          <button class="btn btn-primary btn-sm" type="button" id="empty-action">Pin a notice</button>
+        </div>
+      </section>
+
+      <aside class="compose" id="compose">
+        <form class="compose-card" id="notice-form" novalidate>
+          <p class="compose-title" id="form-title">New notice</p>
+
+          <div class="field">
+            <label for="f-title">Title</label>
+            <input id="f-title" type="text" maxlength="80" placeholder="What&rsquo;s the announcement?" autocomplete="off">
+            <p class="field-note field-error" id="title-error" hidden>Give the notice a title.</p>
+          </div>
+
+          <fieldset class="field">
+            <legend>Category</legend>
+            <div class="chips" role="group" aria-label="Choose category">
+              <button class="chip chip-active" type="button" data-cat="Announcement">Announcement</button>
+              <button class="chip" type="button" data-cat="Events">Events</button>
+              <button class="chip" type="button" data-cat="Academics">Academics</button>
+              <button class="chip" type="button" data-cat="Lost &amp; found">Lost &amp; found</button>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="f-details">Details</label>
+            <textarea id="f-details" rows="4" maxlength="500" placeholder="Where, when, who&hellip;"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="f-date">Publish on</label>
+            <div class="schedule-row">
+              <input id="f-date" type="date">
+              <input id="f-time" type="time">
+            </div>
+            <p class="field-note">Leave empty to go live immediately.</p>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit" id="submit-btn">Pin now</button>
+            <button class="btn btn-ghost" type="button" id="cancel-edit" hidden>Cancel edit</button>
+          </div>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <script src="../../../js/private/admin/dashboard.js"></script>
+</body>
+</html>
