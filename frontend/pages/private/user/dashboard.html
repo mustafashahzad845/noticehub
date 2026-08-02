@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The board — NoticeHub</title>
+  <meta name="description" content="Read and filter every notice on the NoticeHub board.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='9' r='6.5' fill='%23C83222'/%3E%3Ccircle cx='9.8' cy='6.8' r='2' fill='rgba(255,255,255,.55)'/%3E%3Crect x='11.4' y='14.5' width='1.2' height='6' rx='.6' fill='%232A2017'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Caveat:wght@500;700&family=Karla:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../css/private/user/dashboard.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="../../../index.html" aria-label="NoticeHub home">
+        <svg class="wordmark-pin" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="9" r="6.5" fill="#C83222"></circle>
+          <circle cx="9.8" cy="6.8" r="2" fill="rgba(255,255,255,.55)"></circle>
+          <rect x="11.4" y="14.5" width="1.2" height="6" rx=".6" fill="#2A2017"></rect>
+        </svg>
+        noticehub
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="../../../index.html">Home</a>
+        <a href="#board">The board</a>
+      </nav>
+      <div class="header-cta">
+        <a class="btn btn-ghost btn-sm" href="../../auth/login.html">Admin login</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="board-section" id="board">
+      <div class="wrap">
+        <div class="page-head">
+          <p class="eyebrow">The board</p>
+          <h1 class="page-title">Today&rsquo;s notices, <span class="marker-word">pinned fresh.</span></h1>
+          <p class="page-sub">Everything announced, in one place. Filter it by category — new notices land on top.</p>
+        </div>
+
+        <div class="filter-zone" role="group" aria-label="Filter by category">
+          <input class="filter-radio" type="radio" name="cat" id="f-all" checked>
+          <label class="chip" for="f-all">All</label>
+
+          <input class="filter-radio" type="radio" name="cat" id="f-announcement">
+          <label class="chip" for="f-announcement">Announcements</label>
+
+          <input class="filter-radio" type="radio" name="cat" id="f-events">
+          <label class="chip" for="f-events">Events</label>
+
+          <input class="filter-radio" type="radio" name="cat" id="f-academics">
+          <label class="chip" for="f-academics">Academics</label>
+
+          <input class="filter-radio" type="radio" name="cat" id="f-lost">
+          <label class="chip" for="f-lost">Lost &amp; found</label>
+
+          <div class="board" role="region" aria-label="Notice board">
+            <article class="notice cat-announcement" style="--i: 0">
+              <span class="pin" aria-hidden="true"></span>
+              <p class="notice-tag">Announcement</p>
+              <h3 class="notice-title">Library hours extend for finals week</h3>
+              <p class="notice-text">Open until 1 AM from May 4. Quiet floors stay quiet.</p>
+              <p class="notice-meta"><span>posted 2h ago</span><span>#021</span></p>
+            </article>
+
+            <article class="notice cat-events" style="--i: 1">
+              <span class="pin" aria-hidden="true"></span>
+              <p class="notice-tag">Events</p>
+              <h3 class="notice-title">Basketball tryouts — Wednesday 5 PM</h3>
+              <p class="notice-text">Courts B. Bring water and your student ID.</p>
+              <p class="notice-meta"><span>posted yesterday</span><span>#019</span></p>
+            </article>
+
+            <article class="notice cat-academics" style="--i: 2">
+              <span class="pin" aria-hidden="true"></span>
+              <p class="notice-tag">Academics</p>
+              <h3 class="notice-title">Mid-semester survey needs 2 minutes</h3>
+              <p class="notice-text">Your answers decide next semester's schedule. Deadline Friday.</p>
+              <p class="notice-meta"><span>posted 1d ago</span><span>#020</span></p>
+            </article>
+
+            <article class="notice cat-lost" style="--i: 3">
+              <span class="pin" aria-hidden="true"></span>
+              <p class="notice-tag">Lost &amp; found</p>
+              <h3 class="notice-title">Found: black umbrella near the Quad</h3>
+              <p class="notice-text">Claim it at the front desk, second floor.</p>
+              <p class="notice-meta"><span>posted 3 days ago</span><span>#016</span></p>
+            </article>
+          </div>
+        </div>
+
+        <p class="board-caption">4 notices live &middot; updated just now</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <span class="wordmark wordmark-footer">noticehub</span>
+        <p class="footer-tag">Every notice in its place.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="../../../index.html">Home</a>
+        <a href="../../auth/login.html">Admin login</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 NoticeHub</p>
+    </div>
+  </footer>
+</body>
+</html>
