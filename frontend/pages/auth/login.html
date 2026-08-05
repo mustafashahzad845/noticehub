@@ -55,7 +55,7 @@
         <h1 class="form-title" id="login-heading">Log in to your board.</h1>
         <p class="form-sub">Sign in to read notices or run the board.</p>
 
-        <form id="login-form" action="../private/admin/dashboard.html" method="get">
+        <div id="login-form" action="../private/admin/dashboard.html" method="get">
           <div class="field">
             <label class="field-label" for="email">Email</label>
             <div class="input-wrap">
@@ -85,14 +85,15 @@
             </label>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Log in</button>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="loginFlow()">Log in</button>
 
           <div class="form-divider"><span>or</span></div>
 
           <p class="form-alt">New to NoticeHub? <a href="signup.html">Create an account</a></p>
-        </form>
+        </div>
       </div>
     </section>
   </main>
 </body>
+<script type="module" src="../../js/auth/login.js"></script>
 </html>
