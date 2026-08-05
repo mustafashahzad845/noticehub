@@ -40,7 +40,7 @@ app.post("/api/signup", async (request, response) => {
     return;
   }
 
-  const hashPassword = await bcrypt.hash(password, 10);
+const hashPassword = await bcrypt.hash(password, 10);
   console.log(hashPassword);
 
   const obj = {
@@ -62,9 +62,7 @@ app.post("/api/signup", async (request, response) => {
   }
 
   const userData = await MemberModel.create(obj);
-  // console.log(userData);
-
-  // console.log(obj);
+  console.log(userData);
 
   response.json({
     message: "User Created",
