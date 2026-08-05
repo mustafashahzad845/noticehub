@@ -34,10 +34,10 @@
         <h1 class="signup-title">Claim your board.</h1>
         <p class="signup-sub">Create an account to post, edit, and schedule notices.</p>
 
-        <form id="signup-form" action="../private/user/dashboard.html" method="get">
+        <div id="signup-form" action="../private/user/dashboard.html" method="get">
           <div class="field">
             <label class="field-label" for="name">Full name</label>
-            <input type="text" id="name" name="name" autocomplete="name" placeholder="Ada Lovelace" minlength="2" required>
+            <input type="text" id="fullName" name="name" autocomplete="name" placeholder="Ada Lovelace" minlength="2" required>
           </div>
 
           <div class="field">
@@ -49,9 +49,9 @@
             <div class="field">
               <div class="field-head">
                 <label class="field-label" for="password">Password</label>
-                <span class="field-hint">8+ characters</span>
+                <span class="field-hint">6+ characters</span>
               </div>
-              <input type="password" id="password" name="password" autocomplete="new-password" placeholder="At least 8 characters" minlength="8" required>
+              <input type="password" id="password" name="password" autocomplete="new-password" placeholder="At least 6 characters" minlength="6" required>
             </div>
 
             <div class="field">
@@ -60,15 +60,16 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Create account</button>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="signupFlow()">Create account</button>
 
           <div class="form-divider"><span>or</span></div>
 
           <p class="form-alt">Already have an account? <a href="login.html">Log in</a></p>
           <p class="signup-foot">Free to read &middot; posting takes under a minute</p>
-        </form>
+        </div>
       </div>
     </div>
   </main>
 </body>
+<script type="module" src="../../js/auth/signup.js"></script>
 </html>

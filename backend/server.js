@@ -29,7 +29,8 @@ app.get("/", (request, response) => {
 });
 
 app.post("/api/signup", async (request, response) => {
-  const { fullName, email, password } = request.body;
+try {
+    const { fullName, email, password } = request.body;
 
   if (!fullName || !email || !password) {
     response.json({
@@ -69,6 +70,13 @@ const hashPassword = await bcrypt.hash(password, 10);
     body: null,
     status: true,
   });
+} catch (error) {
+  response.json({
+    message : error.message,
+    body : null , 
+    status : false
+  })
+}
 });
 
 // Server running and listening
